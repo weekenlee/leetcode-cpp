@@ -94,24 +94,24 @@ void iterate(ListNode *node) {
 	std::cout << std::endl;
 }
 
-int main()
-{
-	ListNode *list1, *list2;
-	list1 = new ListNode(9);
-	list1->next = new  ListNode(9);
-
-	list2 = new ListNode(5);
-	list2->next = new ListNode(9);
-	list2->next->next = new ListNode(2);
-
-	iterate(list1);
-	iterate(list2);
-	ListNode *list3 = addLists(list1, list2);
-	iterate(list3);
-
-
-	char c = getchar();
-
-	return 0;
-
-}
+//int main()
+//{
+//	ListNode *list1, *list2;
+//	list1 = new ListNode(9);
+//	list1->next = new  ListNode(9);
+//
+//	list2 = new ListNode(5);
+//	list2->next = new ListNode(9);
+//	list2->next->next = new ListNode(2);
+//
+//	iterate(list1);
+//	iterate(list2);
+//	ListNode *list3 = addLists(list1, list2);
+//	iterate(list3);
+//
+//
+//	char c = getchar();
+//
+//	return 0;
+//
+//}

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\backtracking_problems">
+      <UniqueIdentifier>{52616c87-e3ce-4180-b55a-6dc571034705}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -28,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="add_two_number.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="word_search.cpp">
+      <Filter>源文件\backtracking_problems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
