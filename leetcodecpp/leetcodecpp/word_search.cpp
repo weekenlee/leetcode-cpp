@@ -115,26 +115,26 @@ void print_board(const std::vector<std::vector<char>>& board)
 }
 
 
-int main()
-{
-	std::vector<std::vector<char>> board = {
-	{ 'o','a','a','n' },
-	{ 'e','t','a','e' },
-	{ 'i','h','k','r' },
-	{ 'i','f','l','v' }
-	};
-
-	std::vector<std::string> dictionary = {
-		"oath","pea","eat","rain"
-	};
-
-	std::vector<std::string> result = find_words(board, dictionary);
-	std::cout << "Board:" << std::endl;
-	print_board(board);
-	std::cout << "Dictionary:" << std::endl;
-	print_vector(dictionary);
-	std::cout << "Result:" << std::endl;
-	print_vector(result);
-	char c = getchar();
-	return 0;
-}
+//int main()
+//{
+//	std::vector<std::vector<char>> board = {
+//	{ 'o','a','a','n' },
+//	{ 'e','t','a','e' },
+//	{ 'i','h','k','r' },
+//	{ 'i','f','l','v' }
+//	};
+//
+//	std::vector<std::string> dictionary = {
+//		"oath","pea","eat","rain"
+//	};
+//
+//	std::vector<std::string> result = find_words(board, dictionary);
+//	std::cout << "Board:" << std::endl;
+//	print_board(board);
+//	std::cout << "Dictionary:" << std::endl;
+//	print_vector(dictionary);
+//	std::cout << "Result:" << std::endl;
+//	print_vector(result);
+//	char c = getchar();
+//	return 0;
+//}

@@ -16,6 +16,9 @@
     <Filter Include="源文件\backtracking_problems">
       <UniqueIdentifier>{52616c87-e3ce-4180-b55a-6dc571034705}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\并发编程">
+      <UniqueIdentifier>{5eb5be15-70b3-4df7-a395-cde165e8a71f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -34,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="word_search.cpp">
       <Filter>源文件\backtracking_problems</Filter>
+    </ClCompile>
+    <ClCompile Include="hello.cpp">
+      <Filter>源文件\并发编程</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
