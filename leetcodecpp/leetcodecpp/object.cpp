@@ -30,6 +30,24 @@ struct S {
 	}
 };
 
+
+// objects of type S1 can be allocated at any address
+// because both S1.a and S1.b can be allocated at any address
+struct S1 {
+	char a; // size: 1, alignment: 1
+	char b; // size: 1, alignment: 1
+}; // size: 2, alignment: 1
+
+   // objects of type X1 must be allocated at 4-byte boundaries
+   // because X1.n must be allocated at 4-byte boundaries
+   // because int's alignment requirement is (usually) 4
+struct X1 {
+	int n;  // size: 4, alignment: 4
+	char c; // size: 1, alignment: 1
+			// three bytes padding
+}; // size: 8, alignment: 4 
+
+
 int main() {
 	assert(sizeof(S) == 8);
 	S s1 = { 'a', 3.14 };
@@ -56,5 +74,12 @@ int main() {
 		<< "size of b1: " << sizeof b1 << ' '
 		<< "size of b2: " << sizeof b2 << '\n';
 	
+
+	std::cout << "sizeof(S1) = " << sizeof(S1)
+		<< " alignof(S1) = " << alignof(S1) << '\n';
+	std::cout << "sizeof(X1) = " << sizeof(X1)
+		<< " alignof(X1) = " << alignof(X1) << '\n';
+
+
 	getchar();
 }
