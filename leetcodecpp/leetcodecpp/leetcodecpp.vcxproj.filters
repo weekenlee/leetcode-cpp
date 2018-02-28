@@ -44,5 +44,8 @@
     <ClCompile Include="object.cpp">
       <Filter>源文件\并发编程</Filter>
     </ClCompile>
+    <ClCompile Include="virtual.cpp">
+      <Filter>源文件\并发编程</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

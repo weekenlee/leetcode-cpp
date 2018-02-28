@@ -48,7 +48,7 @@ struct X1 {
 }; // size: 8, alignment: 4 
 
 
-int main() {
+int amain() {
 	assert(sizeof(S) == 8);
 	S s1 = { 'a', 3.14 };
 	S s2 = s1;
@@ -82,4 +82,5 @@ int main() {
 
 
 	getchar();
+	return 0;
 }
