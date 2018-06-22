@@ -32,5 +32,4 @@ int main()
 	br.Base::f(); // prints "base"
 	dr.Base::f(); // prints "base"
 
-	getchar();
 }
