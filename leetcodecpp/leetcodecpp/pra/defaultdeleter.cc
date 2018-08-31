@@ -11,4 +11,6 @@ class A {
 
 int main() {
     A t;
+    t.func(1.0);
+    t.func(1);
 }
