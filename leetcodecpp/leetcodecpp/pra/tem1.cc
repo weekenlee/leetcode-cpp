@@ -3,8 +3,6 @@
 #include<iostream>
 using namespace std;
 
-using AnyPointer = std::shared_ptr<void>;
-
 template<int repeattimes, typename F, typename ...Args>
 void doSomeThing(F &&f,  Args &&...args)
 {

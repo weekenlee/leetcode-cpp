@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -std=c++11 -W   CMakeFiles/img2txt.dir/src/img2txt.cc.o  -o img2txt -rdynamic -ltesseract -llept 

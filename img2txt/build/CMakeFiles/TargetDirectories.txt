@@ -1,0 +1,3 @@
+/home/lwj/code/c/img2txt/build/CMakeFiles/rebuild_cache.dir
+/home/lwj/code/c/img2txt/build/CMakeFiles/edit_cache.dir
+/home/lwj/code/c/img2txt/build/CMakeFiles/img2txt.dir
