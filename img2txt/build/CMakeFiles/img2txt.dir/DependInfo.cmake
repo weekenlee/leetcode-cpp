@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lwj/code/c/img2txt/src/img2txt.cc" "/home/lwj/code/c/img2txt/build/CMakeFiles/img2txt.dir/src/img2txt.cc.o"
+  "/Users/liweijian/code/github/leetcode-cpp/img2txt/src/img2txt.cc" "/Users/liweijian/code/github/leetcode-cpp/img2txt/build/CMakeFiles/img2txt.dir/src/img2txt.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

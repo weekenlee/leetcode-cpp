@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/lwj/code/c/img2txt/src/img2txt.cc
+/Users/liweijian/code/github/leetcode-cpp/img2txt/src/img2txt.cc
 leptonica/allheaders.h
 -
 tesseract/baseapi.h

@@ -21,3 +21,4 @@ a = 1
 print(expand("print = $print; a = $a"))
 print(_G.a)
 print(_G['a'])
+print(_G.bbb)
