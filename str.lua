@@ -22,3 +22,7 @@ print(expand("print = $print; a = $a"))
 print(_G.a)
 print(_G['a'])
 print(_G.bbb)
+
+a="你好"
+print(string.sub(a,1,3))
+print(string.len(a))
