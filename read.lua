@@ -1,4 +1,10 @@
 local f = assert(io.open(arg[1],"rb"))
+
+local current = f:seek()
+local size = f:seek("end")
+f:seek("set", current)
+
+print(size)
 local block = 10
 while true do
     local bytes = f:read(block)
@@ -9,3 +15,4 @@ while true do
     io.write(string.rep("    ",block - string.len(bytes) + 1))
     io.write(string.gsub(bytes, "%C", "."), "\n")
 end
+
