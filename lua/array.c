@@ -2,7 +2,10 @@
 #include<lua.h> 
 #include<lualib.h> 
 #include<lauxlib.h> 
-
+/**
+   1  *gcc -c array.c ; gcc -O2 -bundle -undefined dynamic_lookup -o array.so array.o
+   2  *在lua中就可以require这个modual
+   3  * */
 typedef struct NumArray {
     int size;
     double values[1];
@@ -41,5 +44,7 @@ static const struct luaL_Reg arraylib[] = {
 
 int luaopen_array(lua_State *L) {
     luaL_newlib(L, arraylib);
+    lua_pushvalue(L, -1);
+    lua_setglobal(L, "array");
     return 1;
 }
