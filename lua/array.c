@@ -10,7 +10,7 @@ typedef struct NumArray {
 
 static int newarray(lua_State *L) {
     int n = luaL_checkint(L, 1);
-    size_t = nbytes = sizeof(NumArray) + (n-1)*sizeof(double);
+    size_t  nbytes = sizeof(NumArray) + (n-1)*sizeof(double);
     NumArray *a = (NumArray *)lua_newuserdata(L, nbytes);
     a->size = n;
     return 1;
@@ -21,7 +21,7 @@ static int setarray(lua_State *L) {
     int index = luaL_checkint(L, 2);
     double value = luaL_checknumber(L, 3);
 
-    a->values[index - 1] = values;
+    a->values[index - 1] = value;
     return 0;
 }
 
@@ -32,7 +32,7 @@ static int getarray(lua_State *L) {
     return 1;
 }
 
-static const struct luaL_reg arraylib [] = {
+static const struct luaL_Reg arraylib[] = {
     {"new", newarray}, 
     {"set", setarray},
     {"get", getarray},
