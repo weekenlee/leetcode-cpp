@@ -11,8 +11,9 @@ istream& operator >> (istream &is , Date& d) {
     is >> d.month;
     char dash;
     is >> dash;
-    if(dash != '-') {
+    while(dash != '-') {
         is.setstate(ios::failbit);
+        is >> dash;
     }
     is >> d.year;
 }
