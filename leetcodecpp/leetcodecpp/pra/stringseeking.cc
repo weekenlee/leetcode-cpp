@@ -21,5 +21,8 @@ int main() {
     ss.seekg(16, ios::beg);
     ss >> word;
     assert(word == "fish");
+
+    ss.seekp(16, ios::beg);
     ss << "ship";
+    assert(ss.str() == "we will hook no ship before its time.");
 }
