@@ -37,8 +37,8 @@ namespace {
         assert(pos >= 0);
         for(size_t i = pos; i<nptrs-1; ++i) {
             memMap[i] = memMap[i+1];
-            --nptrs;
         }
+        --nptrs;
     }
 
 
@@ -66,7 +66,7 @@ operator new(size_t siz, const char* file, long line) {
     if(activeFlag) {
         if(nptrs == MAXPTRS) {
             printf("memory map too smalll(increas MAXPTRS)\n");
-            eixt(1);
+            exit(1);
         }
         memMap[nptrs].ptr = p;
         memMap[nptrs].file = file;
@@ -75,7 +75,7 @@ operator new(size_t siz, const char* file, long line) {
     }
     if(traceFlag) {
         printf("Allocated %u bytes at address %p ", siz, p);
-        printf("file : %s ,line: %ld ", file ,line);
+        printf("file : %s ,line: %ld \n", file ,line);
     }
     return p;
 }
@@ -86,7 +86,7 @@ operator new[](size_t siz, const char* file, long line) {
 }
 
 void operator delete(void *p) {
-    if(findPtr(p) > 0) {
+    if(findPtr(p) >= 0) {
         free(p);
         assert(nptrs > 0);
         delPtr(p);

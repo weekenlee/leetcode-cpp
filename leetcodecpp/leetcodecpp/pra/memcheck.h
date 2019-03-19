@@ -12,7 +12,7 @@ extern bool traceFlag;
 #define TRACE_OFF() traceFlag = false 
 
 extern bool activeFlag;
-#define MEM_ON activeFlag = true
-#define MEM_OFF activeFlag = false 
+#define MEM_ON() activeFlag = true
+#define MEM_OFF() activeFlag = false 
 
 #endif
