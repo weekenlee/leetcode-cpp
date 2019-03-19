@@ -41,4 +41,63 @@ namespace {
         }
     }
 
-};
+
+    struct Sentinel {
+        ~Sentinel() {
+            if(nptrs > 0) {
+                printf("Leaked memory at:\n");
+                for(size_t i = 0; i < nptrs; ++i) {
+                    printf("\t%p (file: %s, line %ld)\n", 
+                            memMap[i].ptr, memMap[i].file, memMap[i].line);
+                } 
+            } else{
+               printf("no user memory leak!\n");
+            }
+
+        }
+    };
+
+    Sentinel s;
+}
+
+void*
+operator new(size_t siz, const char* file, long line) {
+    void *p = malloc(siz);
+    if(activeFlag) {
+        if(nptrs == MAXPTRS) {
+            printf("memory map too smalll(increas MAXPTRS)\n");
+            eixt(1);
+        }
+        memMap[nptrs].ptr = p;
+        memMap[nptrs].file = file;
+        memMap[nptrs].line = line;
+        ++nptrs;
+    }
+    if(traceFlag) {
+        printf("Allocated %u bytes at address %p ", siz, p);
+        printf("file : %s ,line: %ld ", file ,line);
+    }
+    return p;
+}
+
+void *
+operator new[](size_t siz, const char* file, long line) {
+    return operator new(siz, file, line);
+}
+
+void operator delete(void *p) {
+    if(findPtr(p) > 0) {
+        free(p);
+        assert(nptrs > 0);
+        delPtr(p);
+        if(traceFlag) {
+            printf("Deleted memory at address %p \n", p);
+        }
+    }else if(!p && activeFlag) {
+        printf("Attempt to delete unknown pointer: %p \n", p);
+    }
+}
+
+void operator delete[](void *p) {
+    operator delete(p);
+}
