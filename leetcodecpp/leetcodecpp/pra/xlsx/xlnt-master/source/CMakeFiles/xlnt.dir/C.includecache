@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lwj/code/github/leetcode-cpp/leetcodecpp/leetcodecpp/pra/xlsx/xlnt-master/source/detail/cryptography/sha1.c
+stddef.h
+-
+stdint.h
+-
+string.h
+-
+
+/home/lwj/code/github/leetcode-cpp/leetcodecpp/leetcodecpp/pra/xlsx/xlnt-master/source/detail/cryptography/sha512.c
+stddef.h
+-
+stdint.h
+-
+string.h
+-
+
