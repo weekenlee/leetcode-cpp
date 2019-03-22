@@ -39,13 +39,15 @@ int main()
     try
     {
         auto service = ews::service("https://owa.gf.com.cn/ews/Exchange.asmx",
-                                     "ACME",
-                                     "liweijian@gf.com.cn",
-                                     "Lwj1396@163.com");
+                                     "",
+                                     "",
+                                     "");
   
        // First create some draft message
-        ews::distinguished_folder_id drafts = ews::standard_folder::drafts;
-        for (int i = 0; i < 20; i++)
+        //ews::distinguished_folder_id drafts = ews::standard_folder::drafts;
+        ews::distinguished_folder_id drafts = ews::standard_folder::inbox;
+       /*
+        for (int i = 0; i < 1; i++)
         {
             auto message = ews::message();
             message.set_subject(
@@ -56,12 +58,13 @@ int main()
             auto item_id = service.create_item(
                 message, ews::message_disposition::save_only);
         }
+        */
 
         // Now iterate over all items in the folder
-        // Starting at the end with an offset of 10
+        // Starting at the end with an offset of 0
         // Returning a number of 5 items per iteration
         // Until no more items are returned
-        ews::paging_view view(5, 10, ews::paging_base_point::end);
+        ews::paging_view view(5, 0, ews::paging_base_point::end);
         while (true)
         {
             auto item_ids = service.find_item(drafts, view);
