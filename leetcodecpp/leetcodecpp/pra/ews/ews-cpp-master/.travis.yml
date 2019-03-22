@@ -1,0 +1,57 @@
+language: cpp
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+            - doxygen
+            - graphviz
+            - libcurl4-gnutls-dev
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+        - EWS_TEST_DOMAIN=""
+        - EWS_TEST_PASSWORD=""
+        - EWS_TEST_URI=""
+        - EWS_TEST_USERNAME=""
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+            - doxygen
+            - graphviz
+            - libcurl4-gnutls-dev
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+        - EWS_TEST_DOMAIN=""
+        - EWS_TEST_PASSWORD=""
+        - EWS_TEST_URI=""
+        - EWS_TEST_USERNAME=""
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
+before_script:
+  - mkdir build && cd build
+
+script:
+  - cmake -DCMAKE_BUILD_TYPE=Release .. && make && make doc && ./tests --assets=../tests/assets --gtest_filter=Offline*.*
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: "build/html"
+  github_token: "$GH_REPO_TOKEN"
+  on:
+    branch: master
