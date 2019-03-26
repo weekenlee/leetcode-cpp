@@ -85,6 +85,7 @@ std::string get_today() {
 
 int main()
 {
+start:
     std::string today = get_today();
     std::string last_email ;
 
@@ -179,5 +180,7 @@ endloop:
     ews::tear_down();
     ifs.close();
     ofs.close();
+
+goto start;
     return res;
 }
