@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 template<bool cond> struct Select{};
@@ -28,5 +28,3 @@ template<bool cond> void execute() {
 int main() {
     execute<sizeof(int) == 4>();
 }
-
-
