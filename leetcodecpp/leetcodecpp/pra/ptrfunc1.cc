@@ -13,11 +13,19 @@ bool isEven(int x) {return x % 2 == 0;}
 
 int main() {
     vector<bool> vb;
+
     transform(d, d+DSZ, back_inserter(vb), not1(ptr_fun(isEven)));
     copy(vb.begin(), vb.end(), ostream_iterator<bool>(cout, " "));
+
     vb.clear();
     cout <<endl;
     transform(d, d+DSZ, back_inserter(vb), ptr_fun(isEven));
+    copy(vb.begin(), vb.end(), ostream_iterator<bool>(cout, " "));
+    cout <<endl;
+
+    vb.clear();
+    cout <<endl;
+    transform(d, d+DSZ, back_inserter(vb), bind2nd(ptr_fun<double, double, double>(pow), 2.0));
     copy(vb.begin(), vb.end(), ostream_iterator<bool>(cout, " "));
     cout <<endl;
 }
