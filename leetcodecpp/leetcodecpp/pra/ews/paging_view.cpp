@@ -129,6 +129,7 @@ start:
             {
                 auto msg = service.get_message(id);
                 auto subject = msg.get_subject();
+                auto from = msg.get_from().value();
                 std::cout << subject << "\t";
                 std::cout << msg.get_from().value() << "\t";
                 std::cout << msg.get_date_time_created().to_string() << "\n";
@@ -137,18 +138,29 @@ start:
 
                 if(first_id_name.size() == 0) {
                     first_id_name = idname;
+                    std::cout << "写入" << first_id_name << std::endl;
+                    ofs << first_id_name;
                 }
 
                 std::cout <<"last_email "<<last_email<<std::endl;
                 std::cout <<"idname "<<idname<<std::endl;
 
-                if(last_email == idname || i++ > 1000) {
+                if(last_email == idname || i++ > 10) {
                     std::cout << "写入" << first_id_name << std::endl;
                     ofs << first_id_name;
                     goto endloop;
                 }
 
-                if(subject.find("结算数据") != std::string::npos || subject.find("行情数据") != std::string::npos) {
+                if(from.find("tgservice@gf.com.cn") != std::string::npos) {
+                    continue;
+                }
+
+                if(subject.find("结算数据") != std::string::npos || 
+                        subject.find("行情数据") != std::string::npos ||
+                        subject.find("电子数据") != std::string::npos ||
+                        subject.find("清算数据") != std::string::npos ||
+                        subject.find("信托数据") != std::string::npos ||
+                        subject.find("交易数据") != std::string::npos) {
                     continue;
                 }
                 
@@ -181,6 +193,5 @@ endloop:
     ifs.close();
     ofs.close();
 
-goto start;
     return res;
 }
