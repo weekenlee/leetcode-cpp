@@ -11,6 +11,12 @@ int d[]= {123, 94, 10, 314, 315};
 const int DSZ = sizeof d / sizeof d[0];
 bool isEven(int x) {return x % 2 == 0;}
 
+struct Foo {
+    void display_greeting(int i) {
+        cout << " hi " << i << endl;
+    }
+};
+
 int main() {
     vector<bool> vb;
 
@@ -27,5 +33,9 @@ int main() {
     transform(d, d+DSZ, back_inserter(vbf), bind2nd(ptr_fun<double, double, double>(pow), 2.0));
     copy(vbf.begin(), vbf.end(), ostream_iterator<double>(cout, " "));
     cout <<endl;
+
+    Foo f;
+    auto hi = mem_fn(&Foo::display_greeting);
+    hi(&f, 12);
 }
 
