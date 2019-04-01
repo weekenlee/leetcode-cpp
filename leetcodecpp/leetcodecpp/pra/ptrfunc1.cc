@@ -23,10 +23,9 @@ int main() {
     copy(vb.begin(), vb.end(), ostream_iterator<bool>(cout, " "));
     cout <<endl;
 
-    vb.clear();
-    cout <<endl;
-    transform(d, d+DSZ, back_inserter(vb), bind2nd(ptr_fun<double, double, double>(pow), 2.0));
-    copy(vb.begin(), vb.end(), ostream_iterator<bool>(cout, " "));
+    vector<double> vbf;
+    transform(d, d+DSZ, back_inserter(vbf), bind2nd(ptr_fun<double, double, double>(pow), 2.0));
+    copy(vbf.begin(), vbf.end(), ostream_iterator<double>(cout, " "));
     cout <<endl;
 }
 
