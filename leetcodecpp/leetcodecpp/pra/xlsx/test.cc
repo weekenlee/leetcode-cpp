@@ -2,10 +2,10 @@
 
 int main() {
     xlnt::workbook wb;
-    xlnt::worksheet ws = wb.active_sheet();
-    ws.cell("A1").value(5);
-    ws.cell("A2").value("你好");
-    ws.cell("B2").formula("=RAND()");
+    for (int i = 0 ; i < 15 ; i++) {
+        xlnt::worksheet ws = wb.create_sheet();
+        ws.cell("A1").value(5);
+    }
     wb.save("example.xlsx");
     return 0;
 }
