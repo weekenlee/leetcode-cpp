@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
     size_t maxCols = sheet1->GetTotalCols();
 
 	//std::wcout.imbue(std::locale("chs"));
-    wcout.imbue(locale(locale(),"",LC_CTYPE)); 
+    wcout.imbue(locale(locale(),"",LC_CTYPE));
     wcout << "Dimension of " << sheet1->GetUnicodeSheetName() <<
         " (" << maxRows << ", " << maxCols << ")" << endl;
 
