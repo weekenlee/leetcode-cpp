@@ -35,5 +35,6 @@ int main() {
     cout << "sizeof(Full): "<<sizeof(Full)<<endl;
     cout << "outset c in (Full): "<<offsetof(Full, c)<<endl;
     cout << "outset x in (Full): "<<offsetof(Full, x)<<endl;
+    cout << "sizeof x in (Full): "<<sizeof(Full.x)<<endl;
     cout << "outset y in (Full): "<<offsetof(Full, y)<<endl;
 }
