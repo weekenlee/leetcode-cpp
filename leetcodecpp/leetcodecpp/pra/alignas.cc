@@ -31,10 +31,19 @@ int main() {
     struct Full {
         alignas(32) char c;
         alignas(16) int x, y;
+        // char c;
+        // int x, y;
     };
+    Full f;
     cout << "sizeof(Full): "<<sizeof(Full)<<endl;
     cout << "outset c in (Full): "<<offsetof(Full, c)<<endl;
     cout << "outset x in (Full): "<<offsetof(Full, x)<<endl;
-    cout << "sizeof x in (Full): "<<sizeof(Full.x)<<endl;
     cout << "outset y in (Full): "<<offsetof(Full, y)<<endl;
+    cout << "sizeof c in (Full f): "<<sizeof(f.c)<<endl;
+    cout << "sizeof x in (Full f): "<<sizeof(f.x)<<endl;
+    cout << "sizeof y in (Full f): "<<sizeof(f.y)<<endl;
+    cout << "addr f  " << &f <<endl;
+    cout << "addr f.c  " << &(f.c) <<endl;
+    cout << "addr f.x  " << &f.x <<endl;
+    cout << "addr f.y  " << &f.y <<endl;
 }
