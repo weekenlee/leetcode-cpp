@@ -1,8 +1,9 @@
 #include <iostream>
 #include <limits>
+#include <bitset>
 using namespace std;
 
-typedef unsigned short ulong;
+typedef unsigned int ulong;
 
 int main() {
     int b = 12;
@@ -12,4 +13,8 @@ int main() {
         cout << (b & bit ? '1':'0');
         bit >>= 1;
     }
+    cout <<endl;
+
+    bitset<sizeof(ulong)*8> a(b);
+    cout << a << endl;
 }
