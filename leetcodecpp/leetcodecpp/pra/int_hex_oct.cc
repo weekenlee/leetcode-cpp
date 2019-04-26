@@ -24,4 +24,11 @@ int main() {
     string str;
     str = bitset<8>(10).to_string();
     cout << str <<endl; // 二进制
+
+    cout << bitset<32>('a') << endl;
+    cout << bitset<32>('abc') << endl;
+
+    string as = "111";
+    bitset<32> bs(as);
+    cout << bs.to_string()<<endl;
 }
