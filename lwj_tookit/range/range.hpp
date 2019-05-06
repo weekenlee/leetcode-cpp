@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <stdexcept>
 
-namespace detail_range {
+namespace lwj {
     ///////////////////////////////////////
     //The range iterator
     ///////////////////////////////////////
@@ -51,8 +51,8 @@ namespace detail_range {
         using value_type        = T;
         using reference         = value_type&;
         using const_reference   = const value_type&;
-        using iterator          = detail_range::iterator<value_type>;
-        using const_iterator    = const detail_range::iterator<value_type>;
+        using iterator          = lwj::iterator<value_type>;
+        using const_iterator    = const lwj::iterator<value_type>;
         using size_type         = typename iterator::size_type;
 
     private:
@@ -101,17 +101,17 @@ namespace detail_range {
 
 
 template<typename T>
-detail_range::impl<T> range(T end) {
+lwj::impl<T> range(T end) {
     return {{}, end, 1};
 }
 
 template<typename T>
-detail_range::impl<T> range(T begin, T end) {
+lwj::impl<T> range(T begin, T end) {
     return {begin, end, 1};
 }
 
 template<typename T, typename U>
-auto range(T begin, T end, U step) -> detail_range::impl<decltype(begin+step)> {
-    using r_t = detail_range::impl<decltype(begin + step)>;
+auto range(T begin, T end, U step) -> lwj::impl<decltype(begin+step)> {
+    using r_t = lwj::impl<decltype(begin + step)>;
     return r_t(begin, end, step);
 }
