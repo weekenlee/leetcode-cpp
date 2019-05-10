@@ -1,0 +1,5 @@
+1 编写c++
+2 编写binding.gyp
+3 编写js
+4 node-gyp configure build
+5 node test.js
