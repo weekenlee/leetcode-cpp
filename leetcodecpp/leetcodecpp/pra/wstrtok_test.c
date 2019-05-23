@@ -5,7 +5,7 @@
 int main(void)
 {
     setlocale(LC_ALL, "");
-    wchar_t input[] = L"你好啊哈哈啊诶呀啊";
+    wchar_t input[] = L"你好啊哈a哈啊诶呀啊ab";
     printf("before: %ls\n", input);
 
     wchar_t *buffer;
