@@ -5,16 +5,26 @@ struct Base {
 	virtual void f() {
 		std::cout << "base\n";
 	}
+
+    virtual ~Base() {
+        f();
+        std::cout <<"Destru base"<<std::endl;
+    }
 };
 struct Derived : Base {
 	void f() override { // 'override' is optional
 		std::cout << "derived\n";
 	}
+    ~Derived() {
+        std::cout <<"Destru Deri"<<std::endl;
+    }
 };
 int main()
 {
 	Base b;
 	Derived d;
+
+    return 0;
 
 	// virtual function call through reference
 	Base& br = b; // the type of br is Base&
