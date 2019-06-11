@@ -19,10 +19,8 @@ istream& operator >> (istream &is , Date& d) {
 }
 
 int main() {
-   //Date d;
-   //cin >> d;
-   //cout << d.month<< endl;
-   //cout << d.year<< endl;
-
-
+   Date d;
+   cin >> d;
+   cout << d.month<< endl;
+   cout << d.year<< endl;
 }
