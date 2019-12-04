@@ -40,5 +40,10 @@ def count_by(arr, fn = lambda x : x):
         key[el] += 1
     return key
 
+#count_occurentces, counts the occurrences of a value in a list
+def count_occurences(lst, val):
+    return len([x for x in lst if x == val and type(x) == type(val)])
+
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
