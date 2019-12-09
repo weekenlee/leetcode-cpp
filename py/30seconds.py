@@ -82,6 +82,18 @@ def every(lst, fn = lambda x : not not x):
 def every_nth(lst, nth):
     return lst[1::nth]
 
+#filter_non_unique, filters out the non-unique values in a list
+def filter_non_unique(lst):
+    return [item for item in lst if lst.count(item) == 1]
+
+#group the elements of a list based on the given function
+def group_by(lst, fn):
+    groups = {}
+    for key in list(map(fn, lst)):
+        groups[key] = [item for item in lst if fn(item) == key]
+    return groups
+
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
