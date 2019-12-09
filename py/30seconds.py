@@ -44,6 +44,44 @@ def count_by(arr, fn = lambda x : x):
 def count_occurences(lst, val):
     return len([x for x in lst if x == val and type(x) == type(val)])
 
+#deep_flatten
+def spread(arg):
+    ret = []
+    for i in arg:
+        if isinstance(i, list):
+            ret.extend(i)
+        else:
+            ret.append(i)
+    return ret
+
+def deep_flatten(lst):
+    result = []
+    result.extend(
+            spread(list(map(lambda x : deep_flatten(x) if type(x) == list else x, lst)))
+            )
+    return result
+
+#difference , diff between two iterables
+def difference(a, b):
+    _b = set(b)
+    return [item for item in a if item not in _b]
+
+#diffence_by, diff between two lists
+def difference_by(a, b, fn):
+    _b = set(map[fn, b])
+    return [item for item in a if fn(item) not in _b]
+
+#every, return true if the provied function returns true for every element
+def every(lst, fn = lambda x : not not x):
+    for el in lst:
+        if not fn(el):
+            return False
+    return True
+
+#every_nth, return every nth element in a list
+def every_nth(lst, nth):
+    return lst[1::nth]
 
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
+    print(deep_flatten([1, [2], [[3], 4], 5]))
