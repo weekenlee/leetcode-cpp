@@ -93,6 +93,13 @@ def group_by(lst, fn):
         groups[key] = [item for item in lst if fn(item) == key]
     return groups
 
+#has duplicates, return true if there are duplicate values in a flast list
+def has_duplicates(lst):
+    return len(lst) != len(set(lst))
+
+#head , return the head of a list
+def head(lst):
+    return lst[0]
 
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
