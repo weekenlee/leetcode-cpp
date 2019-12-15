@@ -105,6 +105,9 @@ def head(lst):
 def initial(lst):
     return lst[0:-1]
 
+#initialize_2d_list, initialize a 2d list of given width and height and value
+def initialize_2d_list(w, h, val = None):
+    return [[val for x in range(w)] for y in range(h)]
 
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
