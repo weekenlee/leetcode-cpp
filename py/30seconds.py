@@ -101,6 +101,11 @@ def has_duplicates(lst):
 def head(lst):
     return lst[0]
 
+#initial, return all the elements of a list except the last one
+def initial(lst):
+    return lst[0:-1]
+
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
