@@ -109,6 +109,10 @@ def initial(lst):
 def initialize_2d_list(w, h, val = None):
     return [[val for x in range(w)] for y in range(h)]
 
+#initializes a list containing the numbers in the specified range
+def initialize_list_with_range(end, start = 0, step = 1):
+    return list(range(start, end + 1, step))
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
