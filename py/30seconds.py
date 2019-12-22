@@ -127,6 +127,10 @@ def intersection_by(a, b, fn):
     _b = set(map(fn, b))
     return [item for item in a if fn(item) in _b]
 
+#last, return the last element in a list
+def last(lst):
+    return lst[-1]
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
