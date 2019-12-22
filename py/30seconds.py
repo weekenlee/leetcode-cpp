@@ -122,6 +122,11 @@ def intersection(a, b):
     _b = set(b)
     return [item for item in a if item in _b]
 
+#intersection_by, return a list of elements that exist in both lists, after apply the fun to each element of both
+def intersection_by(a, b, fn):
+    _b = set(map(fn, b))
+    return [item for item in a if fn(item) in _b]
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
