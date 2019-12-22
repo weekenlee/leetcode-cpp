@@ -131,6 +131,10 @@ def intersection_by(a, b, fn):
 def last(lst):
     return lst[-1]
 
+#longest_item
+def longest_item(*args):
+    return max(args, key = len)
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
