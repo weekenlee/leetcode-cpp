@@ -113,6 +113,15 @@ def initialize_2d_list(w, h, val = None):
 def initialize_list_with_range(end, start = 0, step = 1):
     return list(range(start, end + 1, step))
 
+#initialize_list_with_values
+def initialize_list_with_values(n, val = 0):
+    return [val for x in range(n)]
+
+#intersection, return a list of elements that exist in both lists
+def intersection(a, b):
+    _b = set(b)
+    return [item for item in a if item in _b]
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
