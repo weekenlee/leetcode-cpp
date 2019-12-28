@@ -14,7 +14,7 @@ def bifurcate(lst, filterm):
             ]
 
 #bifurcate_by, splites values into two groups according to a function
-def bifurcate(lst, fn):
+def bifurcate_by(lst, fn):
     return [
             [x for x in lst if fn(x)],
             [x for x in lst if not fn(x)]
@@ -68,7 +68,7 @@ def difference(a, b):
 
 #diffence_by, diff between two lists
 def difference_by(a, b, fn):
-    _b = set(map[fn, b])
+    _b = set(map(fn, b))
     return [item for item in a if fn(item) not in _b]
 
 #every, return true if the provied function returns true for every element
