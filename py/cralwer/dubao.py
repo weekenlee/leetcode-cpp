@@ -120,7 +120,7 @@ def cralwer_zzw_jjdt():
         if i.span == None or i.span.text == None: continue
         d = i.span.text.split(" ")[0].replace("-","")
         if d == today:
-            print(i.a.text, "(中证网)", url + i.a.attrs['href'])
+            print(i.a.text, "(中证网)", url[:-1] + i.a.attrs['href'][1:])
 
 #中证网财经要闻 http://www.cs.com.cn/xwzx/hg/
 def cralwer_zzw_cjyw():
@@ -132,7 +132,7 @@ def cralwer_zzw_cjyw():
         if i.span == None or i.span.text == None: continue
         d = i.span.text.split(" ")[0].replace("-","")
         if d == today:
-            print(i.a.text, "(中证网)", url + i.a.attrs['href'])
+            print(i.a.text, "(中证网)", url + i.a.attrs['href'][2:])
 
 
 #期货日报  http://www.qhrb.com.cn/news/industry/
