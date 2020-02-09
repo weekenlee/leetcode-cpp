@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime, date, timedelta
 import re
-#from mailmerge import MailMerge
+from mailmerge import MailMerge
 
 today = time.strftime("%Y%m%d",time.localtime(time.time()))
 todaym = time.strftime("%m",time.localtime(time.time()))
@@ -83,29 +83,25 @@ def cralwer_shzqb():
             cralwer_shzqb_item(i.h2.a.attrs['href'], i.h2.a.attrs['title'])
 
 def cralwer_shzqb_item(url, title):
+    print( title, "(上海证券报)", url)
+    return
     html = urlopen(url).read().decode('gbk')
     soup = BeautifulSoup(html, 'lxml')
-    print( title, "(上海证券报)", url)
     #print("正文: ")
-    #print(soup.select('.content')[0].text)
-    #hyitems.append({
-    #    "title":title+"（上海证券报）",
-    #    "content":soup.select('.content')[0].text
-    #    })
+    print(soup.select('.content')[0].text.replace("　　","\r\n  "))
+    hyitems.append({
+        "title":title+"（上海证券报）",
+        "content":soup.select('.content')[0].text.replace("　　","\r\n  ")
+        })
 
 
 def write_one_word():
     template = "每日读报-template.docx"
+    #template = "template.docx"
     document_1 = MailMerge(template)
-
-    document_1.merge(
-            today = today
-    )
-
-
-    document_1.merge_templates(
-           hyitems, separator='textWrapping_break'
-    )
+    #document_1.merge_templates(
+    #       hyitems, separator='page_break'
+    #)
 
     filename='test.docx'
     document_1.write(filename)
@@ -162,6 +158,9 @@ if __name__=="__main__":
     cralwer_shzqb_hg()
     print()
 
+    #write_one_word()
+    #exit()
+
     #基金
     print("基金")
     cralwer_shzqb_jj()
@@ -177,4 +176,3 @@ if __name__=="__main__":
     print("财经")
     cralwer_zzw_cjyw()
 
-    #write_one_word()

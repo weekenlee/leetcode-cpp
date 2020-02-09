@@ -135,6 +135,42 @@ def last(lst):
 def longest_item(*args):
     return max(args, key = len)
 
+#max_n
+def max_n(lst, n=1):
+    return sorted(lst, reverse=True)[:n]
+
+#min_n
+def min_n(lst, n=1):
+    return sorted(lst, reverse=False)[:n]
+
+#none, return false if the provided function returns ture for at least one element in the list
+def none(lst, fn = lambda x: not not x):
+    for el in lst:
+        if fn(el):
+            return False
+    return True
+
+#offset, move the specified amount of elements to the end of the list
+def offset(lst, offset):
+    return lst[offset:] + lst[:offset]
+
+#sample, return a random element from an array
+from random import randint
+def sample(lst):
+    return lst[randint(0, len(lst) - 1)]
+
+#shuffle , randonmizes the order of the values of an list, return a new list
+from copy import deepcopy
+from random import randint
+def shuffle(lst):
+    temp_lst = deepcopy(lst)
+    m = len(temp_lst)
+    while(m):
+        m -= 1
+        i = randint(0, m)
+        temp_lst[m], temp_lst[i] = temp_lst[i], temp_lst[m]
+    return temp_lst
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
