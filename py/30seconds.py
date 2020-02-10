@@ -171,6 +171,11 @@ def shuffle(lst):
         temp_lst[m], temp_lst[i] = temp_lst[i], temp_lst[m]
     return temp_lst
 
+#similarity , return a list of elments that exist in both lists
+def similarity(a, b):
+    return [item for item in a if item in b]
+
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
