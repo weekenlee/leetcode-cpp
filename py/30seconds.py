@@ -175,6 +175,22 @@ def shuffle(lst):
 def similarity(a, b):
     return [item for item in a if item in b]
 
+#some, return true if the provided function returns true for at least one element in the list
+def some(lst, fn = lambda x : not not x):
+    for el in lst:
+        if(fn(le)):
+            return True
+    return False
+
+#spread, flattens a list, by spreading its elements into a new list
+def spread(arg):
+    ret = []
+    for i in arg:
+        if isinstance(i, list):
+            ret.extend(i)
+        else:
+            ret.append(i)
+    return ret
 
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
