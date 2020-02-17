@@ -192,6 +192,11 @@ def spread(arg):
             ret.append(i)
     return ret
 
+#symmetric_difference, return the symmetric difference between two iterables, without filtering out duplicate values
+def symmetric_difference(a, b):
+    _a, _b = set(a), set(b)
+    return [item for item in a if item not in _b] + [item for item in b if item not in _a]
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
