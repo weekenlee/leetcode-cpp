@@ -197,6 +197,16 @@ def symmetric_difference(a, b):
     _a, _b = set(a), set(b)
     return [item for item in a if item not in _b] + [item for item in b if item not in _a]
 
+#symmetric_difference_by, returen the symmetric difference between two lists, after applying the provided function to each list element of both
+def symmetric_diffenence_by(a, b, fn):
+    _a, _b = set(map(fn, a)), set(map(fn, b))
+    return [item for item in a if fn(item) not in _b] + [item for item in b if fn(item) not in _a]
+
+
+#tail, returns all elements in a list except for the first one
+def tail(lst):
+    return lst[1:] if len(lst) > 1 else lst
+
 if __name__ == '__main__':
     print(chunk([1,2,3,4,5], 2))
     print(deep_flatten([1, [2], [[3], 4], 5]))
