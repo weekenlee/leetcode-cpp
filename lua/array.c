@@ -1,7 +1,10 @@
 #include<stdio.h> 
-#include<lua.h> 
-#include<lualib.h> 
-#include<lauxlib.h> 
+//#include<lua.h> 
+//#include<lualib.h> 
+//#include<lauxlib.h> 
+#include"lua-5.3.1/src/lua.h"
+#include"lua-5.3.1/src/lualib.h"
+#include"lua-5.3.1/src/lauxlib.h"
 /**
    1  *gcc -c array.c ; gcc -O2 -bundle -undefined dynamic_lookup -o array.so array.o
    2  *在lua中就可以require这个modual
@@ -16,6 +19,9 @@ static int newarray(lua_State *L) {
     size_t  nbytes = sizeof(NumArray) + (n-1)*sizeof(double);
     NumArray *a = (NumArray *)lua_newuserdata(L, nbytes);
     a->size = n;
+    for(int i = 0 ; i < n; i++) {
+        a->values[i] = 0;
+    }
     return 1;
 }
 
